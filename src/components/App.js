@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ToDoBoard from './ToDoBoard';
-import ToDoForm from './ToDoForm';
+import ToDoBoard from '../container/ToDoBoard';
+import ToDoForm from '../container/ToDoForm';
 import './App.css';
 
 class App extends Component {
