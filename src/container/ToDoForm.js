@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {CREATE} from './actionTypes'
+import {createToDo} from './actionCreators'
 import uuid from 'uuid/v4'
 
 
@@ -16,7 +16,7 @@ class ToDoForm extends Component {
 
   add(evt)   { 
     evt.preventDefault();
-    this.props.toDo({"toDo": this.state.toDo, "id": uuid()}); 
+    this.props.createToDo({"toDo": this.state.toDo, "id": uuid()}); 
     this.setState({toDo: ''
    })
   }
@@ -37,16 +37,4 @@ class ToDoForm extends Component {
   }
 }
 
-const mapDispatchToProps = function(dispatch) {
-  return {
-    toDo: function(toDoObj) {
-      // call the reducer!
-      dispatch({
-        type: CREATE,
-        toDo: toDoObj,
-      });
-    }
-  };
-}
-
-export default connect(null,mapDispatchToProps)(ToDoForm)
+export default connect(null,{createToDo})(ToDoForm)
